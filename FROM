@@ -1,0 +1,19 @@
+
+# throw errors if Gemfile has been modified since Gemfile.lock
+RUN bundle config --global frozen 1
+
+RUN mkdir -p /Users/amitchoudhary/projects/myimage/
+WORKDIR /Users/amitchoudhary/projects/myimage/
+
+ONBUILD COPY Gemfile /Users/amitchoudhary/projects/myimage/
+ONBUILD COPY Gemfile.lock /Users/amitchoudhary/projects/myimage/
+ONBUILD RUN bundle install
+
+ONBUILD COPY . /Users/amitchoudhary/projects/myimage/
+
+RUN apt-get update && apt-get install -y mysql-client
+RUN gem install rails
+
+EXPOSE 3000
+CMD ["rails", "server" ,"-b", "0.0.0.0"]
+
