@@ -1,7 +1,7 @@
 web:
   build: ./docker/application
   volumes:
-    - /home/docker/mydockerproject
+    - /var/www/apps/mydockerproject
   ports:
     - "8080:8080"
   links:
