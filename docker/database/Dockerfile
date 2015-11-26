@@ -1,5 +1,5 @@
 FROM mysql:5.6.22
 
-ADD config/container/my.conf /etc/mysql/
+COPY ./my.cnf /etc/mysql/
 
-RUN sudo service mysql restart
+RUN service mysql restart

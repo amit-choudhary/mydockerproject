@@ -12,4 +12,4 @@ RUN apt-get update
 
 RUN apt-get install nginx
 
-ADD config/container/nginx-sites.conf /etc/nginx/sites-enabled/default
+ADD ./nginx-sites.conf /etc/nginx/sites-enabled/default
