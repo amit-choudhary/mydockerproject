@@ -1,4 +1,4 @@
-FROM ruby:5.6.22
+FROM mysql:5.6.22
 
 ADD config/container/my.conf /etc/mysql/
 
