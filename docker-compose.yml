@@ -1,0 +1,15 @@
+web:
+  build: ./docker/application
+  volumes:
+    - /home/docker/mydockerproject
+  ports:
+    - "8080:8080"
+  links:
+    - db
+
+db:
+  build: ./docker/database
+  volumes:
+    - /var/lib/mysql
+  ports:
+    - "3306:3306"
